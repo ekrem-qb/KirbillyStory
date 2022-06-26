@@ -9,3 +9,13 @@ void UFConstraintExtension::SetConstraintTargetRotation(USkeletalMeshComponent* 
 		Joint->SetAngularOrientationTarget(TargetRotator.Quaternion());
 	}
 }
+
+FQuat UFConstraintExtension::GetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName)
+{
+	const FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
+	if (Joint != nullptr)
+	{
+		return FQuat(Joint->AngularOrientationTarget_DEPRECATED);
+	}
+	return FQuat::MakeFromEuler(FVector(180, 180, 180));
+}
