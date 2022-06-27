@@ -15,7 +15,7 @@ FQuat UFConstraintExtension::GetConstraintTargetRotation(USkeletalMeshComponent*
 	const FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)
 	{
-		return FQuat(Joint->AngularOrientationTarget_DEPRECATED);
+		return FQuat(Joint->ProfileInstance.AngularDrive.OrientationTarget);
 	}
 	return FQuat::MakeFromEuler(FVector(180, 180, 180));
 }
