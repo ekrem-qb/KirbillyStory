@@ -10,8 +10,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint")
 	static void SetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName,
 	                                        const FRotator TargetRotator);
+
 	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint", BlueprintPure)
 	static FQuat GetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName);
+
+	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint")
+	static void SetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName,
+	                                          const float Stiffness);
+
+	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint", BlueprintPure)
+	static float GetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName);
 private:
 	UFConstraintExtension()
 	{
