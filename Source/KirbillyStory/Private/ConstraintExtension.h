@@ -3,7 +3,7 @@
 #include "ConstraintExtension.generated.h"
 
 UCLASS()
-class UFConstraintExtension final : public UObject
+class UConstraintExtension final : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 public:
@@ -21,7 +21,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint", BlueprintPure)
 	static float GetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName);
 private:
-	UFConstraintExtension()
+	UConstraintExtension()
 	{
 	};
 };

@@ -1,6 +1,6 @@
 ﻿#include "ConstraintExtension.h"
 
-void UFConstraintExtension::SetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName,
+void UConstraintExtension::SetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName,
                                                         const FRotator TargetRotator)
 {
 	FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
@@ -10,7 +10,7 @@ void UFConstraintExtension::SetConstraintTargetRotation(USkeletalMeshComponent* 
 	}
 }
 
-FQuat UFConstraintExtension::GetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName)
+FQuat UConstraintExtension::GetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName)
 {
 	const FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)
@@ -20,7 +20,7 @@ FQuat UFConstraintExtension::GetConstraintTargetRotation(USkeletalMeshComponent*
 	return FQuat::MakeFromEuler(FVector(180, 180, 180));
 }
 
-void UFConstraintExtension::SetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName,
+void UConstraintExtension::SetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName,
                                                           const float Stiffness)
 {
 	FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
@@ -31,7 +31,7 @@ void UFConstraintExtension::SetConstraintAngularStiffness(USkeletalMeshComponent
 	}
 }
 
-float UFConstraintExtension::GetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName)
+float UConstraintExtension::GetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName)
 {
 	const FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)
