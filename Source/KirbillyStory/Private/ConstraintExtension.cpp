@@ -1,7 +1,7 @@
 ﻿#include "ConstraintExtension.h"
 
 void UConstraintExtension::SetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName,
-                                                        const FRotator TargetRotator)
+                                                       const FRotator TargetRotator)
 {
 	FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)
@@ -20,8 +20,13 @@ FQuat UConstraintExtension::GetConstraintTargetRotation(USkeletalMeshComponent* 
 	return FQuat::MakeFromEuler(FVector(180, 180, 180));
 }
 
+FRotator UConstraintExtension::GetAngularOrientationTarget(UPhysicsConstraintComponent* Constraint)
+{
+	return Constraint->ConstraintInstance.ProfileInstance.AngularDrive.OrientationTarget;
+}
+
 void UConstraintExtension::SetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName,
-                                                          const float Stiffness)
+                                                         const float Stiffness)
 {
 	FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)

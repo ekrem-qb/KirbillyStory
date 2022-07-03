@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "PhysicsEngine/PhysicsConstraintComponent.h"
 
 #include "ConstraintExtension.generated.h"
 
@@ -13,6 +14,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint", BlueprintPure)
 	static FQuat GetConstraintTargetRotation(USkeletalMeshComponent* Mesh, const FName JointName);
+
+	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint", BlueprintPure)
+	static FRotator GetAngularOrientationTarget(UPhysicsConstraintComponent* Constraint);
 
 	UFUNCTION(BlueprintCallable, Category="Physics|Components|PhysicsConstraint")
 	static void SetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName,
