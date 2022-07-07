@@ -25,6 +25,15 @@ FRotator UConstraintExtension::GetAngularOrientationTarget(UPhysicsConstraintCom
 	return Constraint->ConstraintInstance.ProfileInstance.AngularDrive.OrientationTarget;
 }
 
+void UConstraintExtension::GetConstrainedComponents(const UPhysicsConstraintComponent* Constraint,
+	UPrimitiveComponent*& Component1, FName& BoneName1, UPrimitiveComponent*& Component2, FName& BoneName2)
+{
+	Component1 = Constraint->OverrideComponent1.Get();
+	Component2 = Constraint->OverrideComponent2.Get();
+	BoneName1 = Constraint->ConstraintInstance.ConstraintBone1;
+	BoneName2 = Constraint->ConstraintInstance.ConstraintBone2;
+}
+
 void UConstraintExtension::SetConstraintAngularStiffness(USkeletalMeshComponent* Mesh, const FName JointName,
                                                          const float Stiffness)
 {
