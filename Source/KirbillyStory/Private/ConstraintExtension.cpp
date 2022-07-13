@@ -40,7 +40,7 @@ void UConstraintExtension::SetConstraintAngularStiffness(USkeletalMeshComponent*
 	FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)
 	{
-		const FConstraintDrive PreviousDriveParams = Joint->ProfileInstance.AngularDrive.SlerpDrive;
+		const FConstraintDrive PreviousDriveParams = Joint->ProfileInstance.AngularDrive.SwingDrive;
 		Joint->SetAngularDriveParams(Stiffness, PreviousDriveParams.Damping, PreviousDriveParams.MaxForce);
 	}
 }
@@ -50,7 +50,7 @@ float UConstraintExtension::GetConstraintAngularStiffness(USkeletalMeshComponent
 	const FConstraintInstance* Joint = Mesh->FindConstraintInstance(JointName);
 	if (Joint != nullptr)
 	{
-		return Joint->ProfileInstance.AngularDrive.SlerpDrive.Stiffness;
+		return Joint->ProfileInstance.AngularDrive.SwingDrive.Stiffness;
 	}
 	return 0;
 }
